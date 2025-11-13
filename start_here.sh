@@ -28,4 +28,5 @@ else
     brew install dotter
 fi
 
-dotter deploy -v
+# TODO: remove skip after testing
+# dotter deploy -v
