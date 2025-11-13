@@ -23,6 +23,12 @@ brew update
 #     exit 1
 # fi
 
+if [ -d "$HOME/homebase/.dotfiles" ]; then
+    echo "Removing existing .dotfiles directory..."
+    rm -rf "$HOME/homebase/.dotfiles"
+fi
+
+
 if command -v dotter >/dev/null 2>&1; then
     gh repo clone "$DOTFILES_REPO" ~/homebase/.dotfiles
 else
