@@ -37,4 +37,6 @@ fi
 
 echo "Dotter installed"
 
+cd ~/homebase/dotfiles
+
 dotter deploy -v
