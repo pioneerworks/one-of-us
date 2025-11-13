@@ -11,8 +11,11 @@ echo "Booting development environment"
 #install xcode command line tools
 xcode-select --install
 
-# install homebrew
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+# install homebrew if not already installed
+if ! command -v brew >/dev/null 2>&1; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
 brew update
 
 # testing without login in
@@ -23,9 +26,9 @@ brew update
 #     exit 1
 # fi
 
-if [ -d "$HOME/homebase/.dotfiles" ]; then
-    echo "Removing existing .dotfiles directory..."
-    rm -rf "$HOME/homebase/.dotfiles"
+if [ -d "$HOME/homebase/dotfiles" ]; then
+    echo "Removing existing dotfiles directory..."
+    rm -rf "$HOME/homebase/dotfiles"
 fi
 
 
