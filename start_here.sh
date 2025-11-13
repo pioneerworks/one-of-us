@@ -15,12 +15,13 @@ xcode-select --install
 curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 brew update
 
-if gh auth login; then
-    echo "Login successful"
-else
-    echo "Login failed"
-    exit 1
-fi
+# testing without login in
+# if gh auth login; then
+#     echo "Login successful"
+# else
+#     echo "Login failed"
+#     exit 1
+# fi
 
 if command -v dotter >/dev/null 2>&1; then
     gh repo clone "$DOTFILES_REPO" ~/homebase/.dotfiles
