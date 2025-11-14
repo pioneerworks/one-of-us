@@ -8,6 +8,9 @@ fi
 
 echo "Booting development environment"
 
+# Request sudo access upfront (caches credentials for script duration)
+sudo -v
+
 #install xcode command line tools
 xcode-select --install
 
