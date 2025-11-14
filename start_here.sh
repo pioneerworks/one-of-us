@@ -22,6 +22,9 @@ fi
 
 brew update
 
+brew install gh
+
+
 if gh auth login; then
     echo "Login successful"
 else
