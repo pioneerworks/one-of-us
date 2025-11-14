@@ -13,12 +13,12 @@ xcode-select --install
 
 # install homebrew if not already installed
 if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew update
 
-testing without login in
 if gh auth login; then
     echo "Login successful"
 else
