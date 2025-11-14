@@ -8,23 +8,18 @@ fi
 
 echo "Booting development environment"
 
-# Request sudo access upfront (caches credentials for script duration)
-echo "Requesting sudo access..."
-sudo -v
-
 #install xcode command line tools
 xcode-select --install
 
 # install homebrew if not already installed
-if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing Homebrew..."
-    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
+# if ! command -v brew >/dev/null 2>&1; then
+#     echo "Installing Homebrew..."
+#     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# fi
 
 brew update
 
 brew install gh
-
 
 if gh auth login; then
     echo "Login successful"
@@ -37,7 +32,6 @@ if [ -d "$HOME/homebase/dotfiles" ]; then
     echo "Removing existing dotfiles directory..."
     rm -rf "$HOME/homebase/dotfiles"
 fi
-
 
 if command -v dotter >/dev/null 2>&1; then
     gh repo clone "$DOTFILES_REPO" ~/homebase/dotfiles
