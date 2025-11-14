@@ -18,13 +18,13 @@ fi
 
 brew update
 
-# testing without login in
-# if gh auth login; then
-#     echo "Login successful"
-# else
-#     echo "Login failed"
-#     exit 1
-# fi
+testing without login in
+if gh auth login; then
+    echo "Login successful"
+else
+    echo "Login failed"
+    exit 1
+fi
 
 if [ -d "$HOME/homebase/dotfiles" ]; then
     echo "Removing existing dotfiles directory..."
