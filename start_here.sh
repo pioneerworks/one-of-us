@@ -42,6 +42,7 @@ if command -v dotter >/dev/null 2>&1; then
     gh repo clone "$DOTFILES_REPO" ~/homebase/dotfiles
 else
     brew install dotter
+    gh repo clone "$DOTFILES_REPO" ~/homebase/dotfiles
 fi
 
 echo "Dotter installed"
