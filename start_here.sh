@@ -14,10 +14,7 @@ xcode-select --install
 # install homebrew if not already installed
 if ! command -v brew >/dev/null 2>&1; then
     echo "Installing Homebrew..."
-    BREW_INSTALL_SCRIPT=$(mktemp)
-    curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "$BREW_INSTALL_SCRIPT"
-    /bin/bash "$BREW_INSTALL_SCRIPT"
-    rm "$BREW_INSTALL_SCRIPT"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 brew update
