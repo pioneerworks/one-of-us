@@ -8,15 +8,6 @@ fi
 
 echo "Booting development environment"
 
-#install xcode command line tools
-xcode-select --install
-
-install homebrew if not already installed
-if ! command -v brew >/dev/null 2>&1; then
-    echo "Installing Homebrew..."
-    sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-fi
-
 brew update
 
 brew install gh
