@@ -8,9 +8,6 @@ fi
 
 echo "Booting development environment"
 
-#install xcode command line tools
-xcode-select --install
-
 brew update
 
 brew install gh
