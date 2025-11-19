@@ -12,11 +12,13 @@ brew update
 
 brew install gh
 
-if gh auth login; then
-    echo "Login successful"
+# Check if already authenticated
+# Ensure GitHub authentication
+if gh auth status >/dev/null 2>&1; then
+    echo "Already authenticated with GitHub"
 else
-    echo "Login failed"
-    exit 1
+    gh auth login || { echo "Login failed"; exit 1; }
+    echo "Login successful"
 fi
 
 if [ -d "$HOME/homebase/dotfiles" ]; then
