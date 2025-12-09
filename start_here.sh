@@ -42,10 +42,10 @@ if [ -d "$HOME/homebase/dotfiles" ]; then
 fi
 
 if command -v dotter >/dev/null 2>&1; then
-    gh repo clone "$DOTFILES_REPO" ~/homebase/dotfiles
+    git clone git@github.com:"$DOTFILES_REPO".git ~/homebase/dotfiles
 else
     brew install dotter
-    gh repo clone "$DOTFILES_REPO" ~/homebase/dotfiles
+    git clone git@github.com:"$DOTFILES_REPO".git ~/homebase/dotfiles
 fi
 
 echo "Dotter installed"
