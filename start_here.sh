@@ -25,16 +25,16 @@ echo -e "\033[0m"
 
 brew update
 
-# brew install gh
+brew install gh
 
-# Check if already authenticated
-# Ensure GitHub authentication
-# if gh auth status >/dev/null 2>&1; then
-#     echo "Already authenticated with GitHub"
-# else
-#     gh auth login || { echo "Login failed"; exit 1; }
-#     echo "Login successful"
-# fi
+Check if already authenticated
+Ensure GitHub authentication
+if gh auth status >/dev/null 2>&1; then
+    echo "Already authenticated with GitHub"
+else
+    gh auth login || { echo "Login failed"; exit 1; }
+    echo "Login successful"
+fi
 
 if [ -d "$HOME/homebase/dotfiles" ]; then
     echo "Removing existing dotfiles directory..."
