@@ -27,8 +27,6 @@ brew update
 
 brew install gh
 
-Check if already authenticated
-Ensure GitHub authentication
 if gh auth status >/dev/null 2>&1; then
     echo "Already authenticated with GitHub"
 else
