@@ -25,7 +25,26 @@ echo -e "\033[0m"
 
 brew update
 
-brew install gh
+brew install gh &
+wait $!
+
+if [ $? -ne 0 ]; then
+    echo "Failed to install gh CLI"
+    exit 1
+fi
+
+# Wait for gh to be available (max 30 seconds)
+counter=0
+while ! command -v gh >/dev/null 2>&1; do
+    sleep 1
+    counter=$((counter + 1))
+    if [ $counter -ge 30 ]; then
+        echo "Timed out waiting for gh CLI to become available"
+        exit 1
+    fi
+done
+
+echo "gh CLI installed successfully"
 
 if gh auth status >/dev/null 2>&1; then
     echo "Already authenticated with GitHub"
