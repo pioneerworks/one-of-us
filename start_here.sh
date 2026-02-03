@@ -25,24 +25,12 @@ echo -e "\033[0m"
 
 brew update
 
-brew install gh &
-wait $!
+brew install gh < /dev/null
 
-if [ $? -ne 0 ]; then
-    echo "Failed to install gh CLI"
+if ! command -v gh >/dev/null 2>&1; then
+    echo "gh CLI not found after installation"
     exit 1
 fi
-
-# Wait for gh to be available (max 30 seconds)
-counter=0
-while ! command -v gh >/dev/null 2>&1; do
-    sleep 1
-    counter=$((counter + 1))
-    if [ $counter -ge 30 ]; then
-        echo "Timed out waiting for gh CLI to become available"
-        exit 1
-    fi
-done
 
 echo "gh CLI installed successfully"
 
@@ -61,7 +49,7 @@ fi
 if command -v dotter >/dev/null 2>&1; then
     git clone git@github.com:"$DOTFILES_REPO".git ~/homebase/dotfiles
 else
-    brew install dotter
+    brew install dotter < /dev/null
     git clone git@github.com:"$DOTFILES_REPO".git ~/homebase/dotfiles
 fi
 
